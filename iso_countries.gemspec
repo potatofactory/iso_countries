@@ -8,12 +8,12 @@ Gem::Specification.new do |s|
   s.authors = ["Jeremy Weiskotten"]
   s.date = %q{2009-08-03}
   s.email = %q{jeremy@weiskotten.com}
-  s.extra_rdoc_files = ["README"]
-  s.files = ["README", "MIT-LICENSE", "Rakefile", "init.rb", "lib/country_list.rb", "lib/iso", "lib/iso/countries", "lib/iso/countries/country_field.rb", "lib/iso/countries/form_helpers.rb", "lib/iso_countries.rb", "tasks/iso_countries_tasks.rake", "test/iso_countries_test.rb"]
+  s.extra_rdoc_files = ["README.rdoc"]
+  s.files = ["README.rdoc", "MIT-LICENSE", "Rakefile", "init.rb", "lib/iso", "lib/iso/countries", "lib/iso/countries/country_field.rb", "lib/iso/countries/form_helpers.rb", "lib/iso_countries.rb", "tasks/iso_countries_tasks.rake", "test/iso_countries_test.rb"]
   s.homepage = %q{http://github.com/jeremyw/iso_countries}
   s.rdoc_options = ["--line-numbers", "--inline-source"]
   s.require_paths = ["lib"]
-  s.requirements = []
+  s.requirements = ['alexrabarts-iso_country_codes']
   s.rubyforge_project = %q{iso_countries}
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{Country selector with ISO codes.}

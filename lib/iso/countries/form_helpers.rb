@@ -2,7 +2,6 @@ module ActionView #:nodoc:
   module Helpers #:nodoc:
     module FormOptionsHelper
       # Return select and option tags for the given object and method, using iso_options_for_select to generate the list of option tags.
-
       def iso_country_select(object, method, priority_countries = nil, options = {}, html_options = {})
         InstanceTag.new(object, method, self).to_iso_select_tag(priority_countries, options, html_options)
       end
@@ -13,8 +12,7 @@ module ActionView #:nodoc:
       # NOTE: Only the option tags are returned, you have to wrap this call in a regular HTML select tag.
       # 
       def iso_options_for_select(selected = nil, priority_countries = nil)
-        countries_for_select = {}
-        ISO::Countries::COUNTRIES.each_pair {|code,name| countries_for_select[ISO::Countries.get_country(code)] = code.to_s }
+        countries_for_select = ISO::Countries.country_code_by_name_lookup
 
         country_options = ""
 

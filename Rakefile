@@ -26,9 +26,9 @@ task :update do
   url = "http://www.iso.org/iso/iso3166_en_code_lists.txt"
   require 'open-uri'
   iso = open(url)
-  require "iconv"
-  conv = Iconv.new('utf8', 'latin1')
-  require "unicode"
+  # require "iconv"
+  # conv = Iconv.new('utf8', 'latin1')
+  # require "unicode"
 
   File.open('lib/country_list.rb', 'w')  do |f|
     f.puts "module ISO"
@@ -43,10 +43,16 @@ task :update do
     iso.each_line do |line|
       country, code = line.split(';')
       code.chomp!
-      country = Unicode.capitalize(conv.iconv(country))
+      
+      country = country.downcase.split(/\s+/).map do |word|        
+        return word if %w(the of and).include?(word)          
+        word.capitalize
+      end.join(' ')
+      
+      # country = Unicode.capitalize(conv.iconv(country))
       
       puts "#{code} => #{country}"
-      countries << "      :#{code.downcase} => N_(\"#{country}\")"
+      countries << "      :#{code.downcase} => \"#{country}\""
     end
     f.puts countries.join(",\n")
     
