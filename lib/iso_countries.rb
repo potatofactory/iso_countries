@@ -1,9 +1,5 @@
-# IsoCountries
-
 require "rubygems"
-require "gettext"
-stubs = %w(activesupport activerecord actionpack actionmailer activeresource)
-stubs.each do |stub|
+%w(activesupport activerecord actionpack actionmailer activeresource).each do |stub|
   require stub
 end
 
@@ -15,24 +11,9 @@ ActiveRecord::Base.send :include, ISO::Countries::CountryField
 module ISO
   module Countries    
     module ClassMethods      
-      GetText.bindtextdomain "iso_countries", :path => "#{File.dirname(__FILE__)}/../locale"
-      GetText.locale = 'en'
-      
-      # Sets the language for country translation
-      def set_language(lang)
-        @@language = lang
-        GetText.bindtextdomain "iso_countries", :path => "#{File.dirname(__FILE__)}/../locale"
-        GetText.locale = lang
-      end
-      
-      # Gets te current translation language
-      def language
-        @@language || "en"
-      end
-      
       # Wrapper to get country name from country code. +code+ can be a symbol or a string containing the country code.
       def get_country(code)
-        _(COUNTRIES[code.to_sym]) rescue nil
+        COUNTRIES[code.to_sym] rescue nil
       end
       
       # Wrapper to get country code from country name.
