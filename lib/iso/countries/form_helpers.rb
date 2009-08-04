@@ -53,7 +53,6 @@ module ActionView #:nodoc:
 
     class FormBuilder
       def iso_country_select(method, priority_countries = nil, options = {}, html_options = {})
-        debugger
         @template.iso_country_select(@object_name, method, priority_countries, options.merge(:object => @object), html_options)
       end
     end    
