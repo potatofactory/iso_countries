@@ -1,6 +1,20 @@
-= iso_countries - Store countries using ISO 3166 codes
+= iso_countries - Store countries using ISO-3166 codes
 
-This rails plugin enables you to store country info only with the country's ISO-3166 code
+This Rails plugin makes it easy to store ISO-3166 country codes in your database, yet present full country names to your users. This plugin, unlike the repository it forked from, does not localize country names -- it's just English.
+
+== About ISO-3166
+
+The ISO standards body defines a two-character code and canonical short name for approximately 250 countries. (Don't blame me if you disagree with their list of countries. Some, such as Taiwan, are controversial, and not my fault.)
+
+http://www.iso.org/iso/english_country_names_and_code_elements
+
+== Dependencies
+
+This plugin has a dependency on the gem alexrabarts-iso_country_codes, which provides the actual code/name mappings.
+
+  gem install alexrabarts-iso_country_codes
+
+Then register the gem in your config/environment.rb and vendor if desired.
 
 == Example
 
@@ -13,18 +27,12 @@ This rails plugin enables you to store country info only with the country's ISO-
   c.country_name            # => "Spain"
   c.country_name = "France"
   c.country                 # => "fr"
-  ISO::Countries.set_language "es"
-  c.country_name            # => "Francia"
 
   <% form_for @company do |f| %>
-    <%= f.iso_country_select :country, [:es, :en] %>
+    <%= f.iso_country_select :country %>
   <% end %>
 
-== Acknowledgements
-
-Translations are provided by the iso-codes package
-http://pkg-isocodes.alioth.debian.org/
 
 == License
 
-Copyright (c) 2008 Jorge Bernal <jbernal@warp.es>, released under the MIT license
+Copyright (c) 2009 Jeremy Weiskotten <jeremy@weiskotten.com>. Released under the MIT license.
