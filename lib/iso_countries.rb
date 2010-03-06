@@ -12,31 +12,31 @@ module ISO
       
       def country_name_by_code_lookup
         @@country_name_by_code_lookup ||= IsoCountryCodes.all.inject({}) do |hash, code|
-          hash[code.alpha2.downcase] = code.name
+          hash[code.alpha2] = code.name
           hash
         end
       end
       
       def country_code_by_name_lookup
         @@country_code_by_name_lookup ||= IsoCountryCodes.all.inject({}) do |hash, code|
-          hash[code.name] = code.alpha2.downcase
+          hash[code.name] = code.alpha2
           hash
         end        
       end
 
       # Wrapper to get country name from country code. +code+ can be a symbol or a string containing the country code.
       def get_country(code)
-        country_name_by_code_lookup[code.downcase]
+        country_name_by_code_lookup[code]
       end
       
       # Wrapper to get 2-character country code from country name.
       def get_code(name)
-        country_code_by_name_lookup[name].downcase
+        country_code_by_name_lookup[name]
       end
           
       # Returns an array with all the available 2-character country codes.
       def country_codes
-        @@country_codes ||= IsoCountryCodes.all.map { |code| code.alpha2.downcase }
+        @@country_codes ||= IsoCountryCodes.all.map { |code| code.alpha2 }
       end      
     end  
     
