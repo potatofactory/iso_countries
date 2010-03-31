@@ -11,22 +11,21 @@ module ActionView #:nodoc:
       # NOTE: Only the option tags are returned, you have to wrap this call in a regular HTML select tag.
       # 
       def iso_options_for_select(selected = nil, priority_countries = nil)
-        countries_for_select = ISO::Countries.country_code_by_name_lookup
-
+        countries_for_select = ISO::Countries.country_code_by_name_lookup.to_a
+        
         country_options = ""
-
+                
         if priority_countries
           priority_countries.map! { |code| [ISO::Countries.get_country(code), code] }
+          
           country_options += options_for_select(priority_countries, selected)
-          country_options += "<option value=\"\">-------------</option>\n"
+          country_options += "<option value=\"\" disabled=\"disabled\">-------------</option>\n"
+          
+          countries_for_select = countries_for_select.reject { |c| priority_countries.include?( c ) }
         end
-
-        if priority_countries && priority_countries.include?(selected)
-          country_options += options_for_select(countries_for_select.sort - priority_countries, selected)
-        else
-          country_options += options_for_select(countries_for_select.sort, selected)
-        end
-
+        
+        country_options += options_for_select(countries_for_select.sort, selected)
+        
         return country_options
       end      
     end
