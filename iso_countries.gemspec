@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date = %q{2009-08-03}
   s.email = %q{jeremy@weiskotten.com}
   s.extra_rdoc_files = ["README.rdoc"]
-  s.files = ["README.rdoc", "MIT-LICENSE", "Rakefile", "init.rb", "lib/iso", "lib/iso/countries", "lib/iso/countries/country_field.rb", "lib/iso/countries/form_helpers.rb", "lib/iso_countries.rb", "tasks/iso_countries_tasks.rake", "test/iso_countries_test.rb"]
+  s.files = ["README.rdoc", "MIT-LICENSE", "Rakefile", "init.rb", "lib/iso", "lib/iso/countries", "lib/iso/countries/country_field.rb", "lib/iso/countries/form_helpers.rb", "lib/iso_countries.rb", "test/iso_countries_test.rb"]
   s.homepage = %q{http://github.com/jeremyw/iso_countries}
   s.rdoc_options = ["--line-numbers", "--inline-source"]
   s.require_paths = ["lib"]
