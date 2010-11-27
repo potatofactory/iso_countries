@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date = %q{2009-08-03}
   s.email = %q{jeremy@weiskotten.com}
   s.extra_rdoc_files = ["README.rdoc"]
-  s.files = ["README.rdoc", "MIT-LICENSE", "Rakefile", "init.rb", "lib/iso", "lib/iso/countries", "lib/iso/countries/country_field.rb", "lib/iso/countries/form_helpers.rb", "lib/iso_countries.rb", "tasks/iso_countries_tasks.rake", "test/iso_countries_test.rb"]
+  s.files = ["README.rdoc", "MIT-LICENSE", "Rakefile", "init.rb", "lib/iso", "lib/iso/countries", "lib/iso/countries/country_field.rb", "lib/iso/countries/form_helpers.rb", "lib/iso_countries.rb", "test/iso_countries_test.rb"]
   s.homepage = %q{http://github.com/jeremyw/iso_countries}
   s.rdoc_options = ["--line-numbers", "--inline-source"]
   s.require_paths = ["lib"]
@@ -23,8 +23,11 @@ Gem::Specification.new do |s|
     s.specification_version = 2
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<alexrabarts-iso_country_codes>, ["~> 0.2.2"])
     else
+      s.add_dependency(%q<alexrabarts-iso_country_codes>, ["~> 0.2.2"])      
     end
   else
+    s.add_dependency(%q<alexrabarts-iso_country_codes>, ["~> 0.2.2"])      
   end
 end
