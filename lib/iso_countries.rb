@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'iso_country_codes'
-require 'activerecord'
+require 'active_record'
 
 require "iso/countries/form_helpers"
 require "iso/countries/country_field"
