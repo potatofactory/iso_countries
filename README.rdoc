@@ -29,7 +29,7 @@ Then register the gem in your config/environment.rb and vendor if desired.
   c.country                 # => "fr"
 
   - form_for @company do |f|
-    = f.iso_country_select :country
+    = f.country_select :country
 
 == License
 
