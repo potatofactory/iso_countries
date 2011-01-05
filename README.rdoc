@@ -10,9 +10,9 @@ http://www.iso.org/iso/english_country_names_and_code_elements
 
 == Dependencies
 
-This plugin has a dependency on the gem alexrabarts-iso_country_codes, which provides the actual code/name mappings.
+This plugin has a dependency on the gem iso_country_codes, which provides the actual code/name mappings.
 
-  gem install alexrabarts-iso_country_codes
+  gem install iso_country_codes
 
 Then register the gem in your config/environment.rb and vendor if desired.
 

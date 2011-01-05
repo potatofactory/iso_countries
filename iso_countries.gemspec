@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/jeremyw/iso_countries}
   s.rdoc_options = ["--line-numbers", "--inline-source"]
   s.require_paths = ["lib"]
-  s.requirements = ['alexrabarts-iso_country_codes']
+  s.requirements = ['iso_country_codes']
   s.rubyforge_project = %q{iso_countries}
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{Country selector with ISO codes.}
@@ -23,11 +23,11 @@ Gem::Specification.new do |s|
     s.specification_version = 2
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<alexrabarts-iso_country_codes>, ["~> 0.2.2"])
+      s.add_runtime_dependency(%q<iso_country_codes>, ["~> 0.2.2"])
     else
-      s.add_dependency(%q<alexrabarts-iso_country_codes>, ["~> 0.2.2"])      
+      s.add_dependency(%q<iso_country_codes>, ["~> 0.2.2"])      
     end
   else
-    s.add_dependency(%q<alexrabarts-iso_country_codes>, ["~> 0.2.2"])      
+    s.add_dependency(%q<iso_country_codes>, ["~> 0.2.2"])      
   end
 end
