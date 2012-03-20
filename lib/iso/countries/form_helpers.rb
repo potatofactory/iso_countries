@@ -26,7 +26,7 @@ module ActionView #:nodoc:
         
         country_options += options_for_select(countries_for_select.sort, selected)
         
-        return country_options
+        return country_options.html_safe
       end      
     end
       

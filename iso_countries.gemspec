@@ -14,5 +14,7 @@ Gem::Specification.new do |s|
   s.requirements = ['iso_country_codes']
   s.summary = 'Country selector with ISO codes.'
 
+  s.add_dependency 'actionpack', '>= 2.3.8'
+  s.add_dependency 'activesupport', '>= 2.3.8'
   s.add_dependency 'iso_country_codes', '~> 0.2.0'
 end
