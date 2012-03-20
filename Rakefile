@@ -34,42 +34,42 @@ task :update do
     f.puts "module ISO"
     f.puts "  module Countries"
     f.puts "    COUNTRIES = {"
-    
+
     # Skip the first two lines, as they don't contain country information
     iso.readline
     iso.readline
-    
+
     countries = []
     iso.each_line do |line|
       country, code = line.split(';')
       code.chomp!
-      
-      country = country.downcase.split(/\s+/).map do |word|        
-        return word if %w(the of and).include?(word)          
+
+      country = country.downcase.split(/\s+/).map do |word|
+        return word if %w(the of and).include?(word)
         word.capitalize
       end.join(' ')
-      
+
       # country = Unicode.capitalize(conv.iconv(country))
-      
+
       puts "#{code} => #{country}"
       countries << "      :#{code.downcase} => \"#{country}\""
     end
     f.puts countries.join(",\n")
-    
+
     f.puts "  }"
     f.puts "  end"
     f.puts "end"
   end
-  
+
 end
 
-desc "Update pot/po files to match new version." 
+desc "Update pot/po files to match new version."
 task :updatepo do
   require 'gettext'
-  require 'gettext/utils'  
+  require 'gettext/utils'
 
   # GetText::ActiveRecordParser.init(:use_classname => false, :activerecord_classes => ['FakeARClass'])
-  GetText.update_pofiles('iso_countries', 
+  GetText.update_pofiles('iso_countries',
                          Dir.glob("lib/**/*.rb"),
                          "iso_countries plugin")
 end
@@ -77,14 +77,14 @@ end
 desc "Create mo-files"
 task :makemo do
   require 'gettext'
-  require 'gettext/utils'  
+  require 'gettext/utils'
   GetText.create_mofiles(true, "po", "locale")
 end
 
 desc "Downloads translations from iso-codes repository"
 task :download do
   repo = "svn://svn.debian.org/pkg-isocodes/trunk/iso-codes/iso_3166"
-  
+
   FileUtils.rm_rf("tmp")
   system "svn co #{repo} tmp"
   Dir.glob("tmp/*.po").each do |pofile|
