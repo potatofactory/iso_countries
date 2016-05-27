@@ -4,7 +4,7 @@ module ISO #:nodoc:
       def self.included(base) #:nodoc:
         base.extend ClassMethods
       end
-      
+
       module ClassMethods
         # Declares a field from a model as a iso code for a country
         #
@@ -13,7 +13,7 @@ module ISO #:nodoc:
         #   class Company
         #     iso_country :country
         #   end
-        # 
+        #
         #   c = Company.new(:country => "es")
         #   c.country_name # => "Spain"
         #   c.country_name = "France"
@@ -35,7 +35,7 @@ module ISO #:nodoc:
                 else
                   raise ArgumentError, "Invalid country name"
                 end
-              end              
+              end
               
             EOC
           end
